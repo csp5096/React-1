@@ -3,6 +3,7 @@
 ###############################
 
 config.json
+package-lock.json
 
 ###############################
 # Snapkite filters
