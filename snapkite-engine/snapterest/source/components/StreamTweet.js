@@ -70,7 +70,7 @@ class StreamTweet extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log('[Snapterest]' StreamTweet: 7. Running componentDidUpdate(););
+    console.log('[Snapterest] StreamTweet: 7. Running componentDidUpdate()');
 
     window.snapterest.numberofDisplayedTweets++;
   }

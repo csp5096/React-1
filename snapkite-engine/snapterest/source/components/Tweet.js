@@ -12,7 +12,7 @@ const tweetStyle = {
 const imageStyle = {
   maxHeight: '400px',
   maxWidth: '100%',
-  boxShadow '0px 1px 1px 0px #aaa',
+  boxShadow: '0px 1px 1px 0px #aaa',
   border: '1px solid #fff'
 };
 
@@ -26,7 +26,7 @@ class Tweet extends React.Component {
   }
 
   render() {
-    const ( tweet ) = this.props;
+    const tweet = this.props.tweet;
     const tweetMediaUrl = tweet.media[0].url;
 
     return (

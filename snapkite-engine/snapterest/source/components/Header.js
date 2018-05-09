@@ -14,7 +14,7 @@ class Header extends React.Component {
     const { text } = this.props;
 
     return (
-      <h2 style={headerStyle}>{text}</h2
+      <h2 style={headerStyle}>{text}</h2>
     );
   }
 }
