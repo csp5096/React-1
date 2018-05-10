@@ -8,14 +8,14 @@ class CollectionControls extends Component {
   state = {
     name: 'new',
     isEditingName: false
-  };
+  }
 
   getHeaderText = () => {
     const { name } = this.state;
     const { numberOfTweetsInCollection } = this.props;
     let text = numberOfTweetsInCollection;
 
-    if (numberOfTweetsInCollection == 1) {
+    if (numberOfTweetsInCollection === 1) {
       text = `${text} tweet in your`;
     } else {
       text = `${text} tweets in your`;
@@ -29,26 +29,26 @@ class CollectionControls extends Component {
   }
 
   toggleEditCollectionName = () => {
-    this.setState(prevSate => ({
-      isEditingName: !prevSate.isEditingName
+    this.setState(prevState => ({
+      isEditingName: !prevState.isEditingName
     }));
   }
 
   setCollectionName = (name) => {
     this.setState({
-      name,
+      name: name,
       isEditingName: false
-    })
+    });
   }
 
-  render () {
-    const {name, isEditingName } = this.state;
+  render() {
+    const { name, isEditingName } = this.state;
     const {
       onRemoveAllTweetsFromCollection,
       htmlMarkup
     } = this.props;
 
-    if(isEditingName) {
+    if (isEditingName) {
       return (
         <CollectionRenameForm
           name={name}
@@ -72,7 +72,7 @@ class CollectionControls extends Component {
           handleClick={onRemoveAllTweetsFromCollection}
         />
 
-        <CollectionExportForm htmlMarkup={htmlMarkup} />
+        <CollectionExportForm htmlMarkup={htmlMarkup}/>
       </div>
     );
   }

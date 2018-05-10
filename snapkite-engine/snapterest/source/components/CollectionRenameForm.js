@@ -18,8 +18,8 @@ class CollectionRenameForm extends Component {
   }
 
   setInputValue = (inputValue) => {
-    this.setSate({
-      inputValue
+    this.setState({
+      inputValue: inputValue
     });
   }
 
@@ -32,7 +32,7 @@ class CollectionRenameForm extends Component {
     event.preventDefault();
 
     const { onChangeCollectionName } = this.props;
-    const { inputValue: collectionName} = this.state;
+    const { inputValue: collectionName } = this.state;
 
     onChangeCollectionName(collectionName);
   }
@@ -42,41 +42,33 @@ class CollectionRenameForm extends Component {
 
     const {
       name: collectionName,
-      onChangeCollectionName
+      onCancelCollectionNameChange
     } = this.props;
 
     this.setInputValue(collectionName);
-    onChangeCollectionNameChange();
+    onCancelCollectionNameChange();
   }
 
   componentDidMount() {
-    this.collectionName.focus();
+    this.refs.collectionName.focus();
   }
 
   render() {
-    const { inputValue } = this.state;
-
     return (
-      <form className="form-inline" onSubmit={this.handleFormSubmit}>
-        <Header text="Collection name:"/>
-        <div className='form-group'>
+      <form className="form-inline" onSubmit={this.handleSubmit}>
+        <Header text="Collection name:" />
+
+        <div className="form-group">
           <input
             className="form-control"
             style={inputStyle}
             onChange={this.handleInputValueChange}
-            value={inputValue}
-            ref={input => { this.collectionNameInput = input; }}
-          />
+            value={this.state.inputValue}
+            ref="collectionName" />
         </div>
 
-        <Button
-          label="Change"
-          handleClick={this.handleFormSubmit}
-        />
-        <Button
-          label="Cancel"
-          handleClick={this.handleFormCancel}
-        />
+        <Button label="Change" handleClick={this.handleFormSubmit} />
+        <Button label="Cancel" handleClick={this.handleFormCancel} />
       </form>
     );
   }

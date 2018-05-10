@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SnapkiteStreamClient from 'snapkite-stream-client';
 import StreamTweet from './StreamTweet';
-import Header from './Header.react';
+import Header from './Header';
 
 class Stream extends Component {
   state = {
@@ -22,7 +22,7 @@ class Stream extends Component {
     });
   }
 
-  render () {
+  render() {
     const { tweet } = this.state;
     const { onAddTweetToCollection } = this.props;
     const headerText = 'Waiting for public photos from Twitter...';
@@ -31,7 +31,7 @@ class Stream extends Component {
       return (
         <StreamTweet
           tweet={tweet}
-          onAddTweetToCollection={onAddTweetToCollection}
+          onAddTweetToCollection={this.props.onAddTweetToCollection}
         />
       );
     }

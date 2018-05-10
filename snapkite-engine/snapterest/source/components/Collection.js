@@ -6,24 +6,25 @@ import Header from './Header';
 
 class Collection extends Component {
 
-  createHtmlMarkupStringOfTweetList = () => {
-    const { tweets } = this.props;
-
+  createHtmlMarkupStringOfTweetList() {
     const htmlString = ReactDOMServer.renderToStaticMarkup(
-      <TweetList tweets={tweets} />
+      <TweetList tweets={this.props.tweets}/>
     );
 
     const htmlMarkup = {
       html: htmlString
     };
 
-    return JSOn.stringify(htmlMarkup);
+    return JSON.stringify(htmlMarkup);
   }
 
-  getListOfTweetIds = () => Object.kesy(this.props.tweet)
-  getNumberOfTweetsInCollection = () => this.getListOfTweetIds().length
+  getListOfTweetIds = () =>
+    Object.keys(this.props.tweets)
 
-  render () {
+  getNumberOfTweetsInCollection = () =>
+    this.getListOfTweetIds().length
+
+  render() {
     const numberOfTweetsInCollection = this.getNumberOfTweetsInCollection();
 
     if (numberOfTweetsInCollection > 0) {
@@ -35,19 +36,19 @@ class Collection extends Component {
       return (
         <div>
           <CollectionControls
-            numberOfTweetsInCollection = {numberOfTweetsInCollection}
+            numberOfTweetsInCollection={numberOfTweetsInCollection}
             htmlMarkup={htmlMarkup}
-            onRemoveAllTweetsFromCollection={onRemoveAllTweetsFromCollection}
+            onRemoveAllTweetsFromCollection={removeAllTweetsFromCollection}
           />
-
           <TweetList
             tweets={tweets}
-            onRemoveAllTweetsFromCollection={onRemoveAllTweetsFromCollection}
+            onRemoveTweetFromCollection={handleRemoveTweetFromCollection}
           />
         </div>
       );
     }
-    return <Header text="Your collection is empty."/>;
+
+    return <Header text="Your collection is empty"/>;
   }
 }
 

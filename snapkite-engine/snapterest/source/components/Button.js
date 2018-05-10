@@ -1,10 +1,10 @@
 import React from 'react';
 
-const ButtonStyle = {
-  margin: '10px 0'
+const buttonStyle = {
+  margin: '10px 10px 10px 0'
 };
 
-const Button = ({ lable, handleClick }) => (
+const Button = ({ label, handleClick }) => (
   <button
     className="btn btn-default"
     style={buttonStyle}

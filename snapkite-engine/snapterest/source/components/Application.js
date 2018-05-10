@@ -20,7 +20,7 @@ class Application extends Component {
   removeTweetFromCollection = (tweet) => {
     const { collectionTweets } = this.state;
 
-    delete collectionTweets[tweets.id];
+    delete collectionTweets[tweet.id];
 
     this.setState({
       collectionTweets: collectionTweets
@@ -34,7 +34,7 @@ class Application extends Component {
   }
 
   render() {
-    const{
+    const {
       addTweetToCollection,
       removeTweetFromCollection,
       removeAllTweetsFromCollection
@@ -43,8 +43,8 @@ class Application extends Component {
     return (
       <div className="container-fluid">
         <div className="row">
-          <div className="col-md-4 text center">
-            <string onAddTweetToCollection = {addTweetToCollection}/>
+          <div className="col-md-4 text-center">
+            <Stream onAddTweetToCollection={addTweetToCollection}/>
           </div>
           <div className="col-md-8">
             <Collection

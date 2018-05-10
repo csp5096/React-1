@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 const tweetStyle = {
@@ -11,14 +11,31 @@ const tweetStyle = {
 
 const imageStyle = {
   maxHeight: '400px',
-  maxWidth: '100%',
   boxShadow: '0px 1px 1px 0px #aaa',
   border: '1px solid #fff'
 };
 
-class Tweet extends React.Component {
-  handleImageClick () {
-    const { tweet, onImageClick } = this.props;
+class Tweet extends Component {
+  static propTypes = {
+    tweet(properties, propertyName, componentName) {
+      const tweet = properties[propertyName];
+
+      if (!tweet) {
+        return new Error('Tweet must be set.');
+      }
+
+      if (!tweet.media) {
+        return new Error('Tweet must have an image.');
+      }
+    },
+    onImageClick: PropTypes.func
+  }
+
+  handleImageClick = () => {
+    const {
+      tweet,
+      onImageClick
+    } = this.props;
 
     if (onImageClick) {
       onImageClick(tweet);
@@ -31,28 +48,14 @@ class Tweet extends React.Component {
 
     return (
       <div style={tweetStyle}>
-        <img src={tweetMediaUrl}
-        onClick={this.handleImageClick}
-        style={imageStyle}
+        <img
+          src={tweetMediaUrl}
+          onClick={this.handleImageClick}
+          style={imageStyle}
         />
       </div>
     );
   }
 }
-
-Tweet.propTypes = {
-  tweet: (properties, propertyName, componentName) => {
-    const tweet = properties[propertyName];
-
-    if (!tweet) {
-      return new Error('Tweet must be set.');
-    }
-
-    if (!tweet.media) {
-      return new Error('Tweet must have an image.');
-    }
-  },
-  onImageClick: PropTypes.func
-};
 
 export default Tweet;
