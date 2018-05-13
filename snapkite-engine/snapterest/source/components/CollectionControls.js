@@ -55,7 +55,7 @@ class CollectionControls extends Component {
 
     return (
       <div>
-        <Header text={this.getHeaderText()}/>
+        <Header text={this.getHeaderText()} />
 
         <Button
           label="Rename collection"
@@ -67,7 +67,7 @@ class CollectionControls extends Component {
           handleClick={onRemoveAllTweetsFromCollection}
         />
 
-        <CollectionExportForm htmlMarkup={htmlMarkup}/>
+        <CollectionExportForm htmlMarkup={htmlMarkup} />
       </div>
     );
   }

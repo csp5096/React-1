@@ -25,17 +25,13 @@ class Stream extends Component {
   render() {
     const { tweet } = this.state;
     const { onAddTweetToCollection } = this.props;
-    const headerText = 'Waiting for public photos from Twitter...';
+    const headerText = "Waiting for public photos from Twitter...";
 
     if (tweet) {
-      return (
-        <StreamTweet tweet={tweet} />
-      );
+      return (<StreamTweet tweet={tweet}/>);
     }
 
-    return (
-      <Header text={headerText}/>
-    );
+    return (<Header text={headerText}/>);
   }
 }
 

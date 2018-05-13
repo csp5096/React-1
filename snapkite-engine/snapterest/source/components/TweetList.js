@@ -14,7 +14,7 @@ const listItemStyle = {
 class TweetList extends Component {
 
   removeTweetFromCollection = (tweet) => {
-    CollectionActionCreators.removeTweetFromCollection(tweet.id)
+    CollectionActionCreators.removeTweetFromCollection(tweet.id);
   }
 
   getListOfTweetIds = () =>

@@ -10,8 +10,8 @@ class StreamTweet extends Component {
     headerText: null
   }
 
-  addTweetToCollection = (tweet) => {
-    CollectionActionCreators.onAddTweetToCollection(tweet);
+  addTweetToCollection = tweet => {
+    CollectionActionCreators.addTweetToCollection(tweet);
   }
 
   componentWillMount() {

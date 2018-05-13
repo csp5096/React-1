@@ -1,7 +1,6 @@
 import AppDispatcher from '../dispatcher/AppDispatcher';
 
 function addTweetToCollection(tweet) {
-
   const action = {
     type: 'add_tweet_to_collection',
     tweet
@@ -33,7 +32,7 @@ function setCollectionName(collectionName) {
     collectionName
   };
 
-  AppDispatcher.dispatch(action)
+  AppDispatcher.dispatch(action);
 }
 
 export default {

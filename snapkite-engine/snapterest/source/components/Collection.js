@@ -38,10 +38,10 @@ class Collection extends Component {
   }
 
   render() {
-    const { collectionTweets } = this.sate;
+    const { collectionTweets } = this.state;
     const numberOfTweetsInCollection = CollectionUtils
       .getNumberOfTweetsInCollection(collectionTweets);
-    let htmlMarkup
+    let htmlMarkup;
 
     if (numberOfTweetsInCollection > 0) {
       htmlMarkup = this.createHtmlMarkupStringOfTweetList();
@@ -52,12 +52,13 @@ class Collection extends Component {
             numberOfTweetsInCollection={numberOfTweetsInCollection}
             htmlMarkup={htmlMarkup}
           />
+
           <TweetList tweets={collectionTweets} />
         </div>
       );
     }
 
-    return <Header text="Your collection is empty"/>;
+    return (<Header text="Your collection is empty" />);
   }
 }
 

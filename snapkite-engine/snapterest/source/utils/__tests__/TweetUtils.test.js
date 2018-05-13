@@ -1,4 +1,4 @@
-import TweetUtils from './TweetUtils';
+import TweetUtils from '../TweetUtils';
 
 describe('Tweet utilities module', function () {
   it('returns an array of tweet ids', function () {

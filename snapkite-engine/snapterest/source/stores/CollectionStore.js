@@ -48,7 +48,6 @@ const CollectionStore = Object.assign(
 function handleAction(action) {
 
   switch (action.type) {
-
     case 'add_tweet_to_collection':
       addTweetToCollection(action.tweet);
       emitChange();
@@ -59,7 +58,7 @@ function handleAction(action) {
       emitChange();
       break;
 
-    case 'removal_all_tweets_from_collection':
+    case 'remove_all_tweets_from_collection':
       removeAllTweetsFromCollection();
       emitChange();
       break;

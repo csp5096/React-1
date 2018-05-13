@@ -1,4 +1,4 @@
-import CollectionUtils from './CollectionUtils';
+import CollectionUtils from '../CollectionUtils';
 
 describe('CollectionUtils', () => {
   const collectionTweetsMock = {

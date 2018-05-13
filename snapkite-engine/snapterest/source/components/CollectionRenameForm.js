@@ -10,7 +10,7 @@ const inputStyle = {
 
 class CollectionRenameForm extends Component {
   state = {
-      inputValue: name
+    inputValue: name
   }
 
   setInputValue = (inputValue) => {
@@ -37,7 +37,7 @@ class CollectionRenameForm extends Component {
   handleFormCancel = (event) => {
     event.preventDefault();
 
-    const { onCancelCollectionNameChange} = this.props;
+    const { onCancelCollectionNameChange } = this.props;
     const collectionName = CollectionStore.getCollectionName();
 
     this.setInputValue(collectionName);
