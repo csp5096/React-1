@@ -17,8 +17,8 @@ const TweetStore = Object.assign({}, EventEmitter.prototype, {
   },
 
   removeChangeListener(callback) {
-    this.removeChangeListener('chanage', callback);
-  }
+    this.removeListener('change', callback);
+  },
 
   getTweet() {
     return tweet;

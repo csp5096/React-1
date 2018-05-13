@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
-import SnapkiteStreamClient from 'snapkite-stream-client';
 import StreamTweet from './StreamTweet';
 import Header from './Header';
+import TweetStore from '../stores/TweetStore';
 
 class Stream extends Component {
   state = {
-    tweet: null
+    tweet: TweetStore.getTweet()
   }
 
   componentDidMount() {
-    SnapkiteStreamClient.initializeStream(this.handleNewTweet);
+    TweetStore.addChangeListener(this.onTweetChange);
   }
 
   componentWillUnmount() {
-    SnapkiteStreamClient.destroyStream();
+    TweetStore.removeChangeListener(this.onTweetChange);
   }
 
-  handleNewTweet = (tweet) => {
+  onTweetChange = () => {
     this.setState({
-      tweet: tweet
+      tweet: TweetStore.getTweet()
     });
   }
 
@@ -29,10 +29,7 @@ class Stream extends Component {
 
     if (tweet) {
       return (
-        <StreamTweet
-          tweet={tweet}
-          onAddTweetToCollection={this.props.onAddTweetToCollection}
-        />
+        <StreamTweet tweet={tweet} />
       );
     }
 
