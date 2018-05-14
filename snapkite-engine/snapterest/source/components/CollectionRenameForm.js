@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Header from './Header';
 import Button from './Button';
 import CollectionActionCreators from '../actions/CollectionActionCreators';
-import CollectionStore from '../stores/CollectionStore';
 
 const inputStyle = {
   marginRight: '5px'
